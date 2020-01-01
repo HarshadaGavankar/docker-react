@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+    
+before_install:
+    - docker build -t harshadagavankar/docker-react -f Dockerfile.dev .
+   
+script:
+    - docker run harshadagavankar/docker-react npm run test -- --coverage
